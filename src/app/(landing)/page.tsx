@@ -60,7 +60,7 @@ export default function Home() {
 
         {/* Certifications Section */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 text-center">
+          <h2 className="text-2xl font-bold mb-6 text-center font-sans">
             My Certifications
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -68,24 +68,36 @@ export default function Home() {
               {
                 title: "CCNA Networking 1",
                 link: "https://www.credly.com/badges/dc25122f-6542-4156-ba5b-6ca4b0b989cd/linked_in_profile",
+                thumbnail : "/CCNA.png"
               },
               {
                 title: "IT Specialist Python",
                 link: "https://www.credly.com/badges/3395c826-8449-4710-8756-dd91ec998733/public_url",
+                thumbnail : "/PYTHON.png"
               },
               {
                 title: "GitHub Foundations",
                 link: "https://www.credly.com/badges/9bd3f90d-6e7f-46b6-987b-a5d567956bb6/public_url",
+                thumbnail : "/FOUNDATIONS.png"
               },
               {
                 title: "Oracle Certified Professional-AI",
                 link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=5902AED8C94E8FBB488F0BFE909F6088B1B562CFD0518B74F7A3F345354ED61D",
+                thumbnail : "/ORACLE.png"
               },
             ].map((cert, index) => (
               <Link key={index} href={cert.link} className="group">
-                <Card className="transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-lg">
+                <Card className="transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-lg flex">
+                  <div className="h-full ml-4">
+                  <Image 
+                    src = {cert.thumbnail}
+                    alt = "Certificate"
+                    width={150}
+                    height={150}>
+                  </Image>
+                  </div>
                   <CardHeader>
-                    <CardTitle>{cert.title}</CardTitle>
+                    <CardTitle className="leading-loose font-sans font-extrabold">{cert.title}</CardTitle>
                     <CardDescription>Click to view certificate</CardDescription>
                   </CardHeader>
                 </Card>
@@ -96,7 +108,7 @@ export default function Home() {
 
         {/* Client Recommendations Section */}
         <section>
-          <h2 className="text-2xl font-bold mb-6 text-center">
+          <h2 className="text-2xl font-bold mb-6 text-center font-sans">
             Client Recommendations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
