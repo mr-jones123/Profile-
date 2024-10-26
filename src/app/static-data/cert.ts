@@ -4,8 +4,7 @@ export default interface Certification {
     thumbnail: string
 }
 
-
-export const certifcations: Certification[] = [
+export const certifications: Certification[] = [
     {
       title: "CCNA Networking 1",
       link: "https://www.credly.com/badges/dc25122f-6542-4156-ba5b-6ca4b0b989cd/linked_in_profile",
@@ -26,4 +25,4 @@ export const certifcations: Certification[] = [
       link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=5902AED8C94E8FBB488F0BFE909F6088B1B562CFD0518B74F7A3F345354ED61D",
       thumbnail : "/ORACLE.png"
     },
-  ]
+  ] as const;

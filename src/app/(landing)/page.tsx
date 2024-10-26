@@ -20,7 +20,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { certifcations } from "../api/cert";
+import { certifications } from "../static-data/cert";
 
 export default function Home() {
   return (
@@ -46,7 +46,7 @@ export default function Home() {
           <p className="text-lg sm:text-xl text-muted-foreground mb-4 text-center">
             Developer
           </p>
-          <p className="max-w-2xl mx-auto mb-6 font-sans leading-loose md:text-lg font-semibold sm:text-base text-center">
+          <p className="max-w-2xl mx-auto mb-6 font-sans leading-loose md:text-lg font-regular sm:text-base text-center">
             Hi! My name is Xy! A developer that is currently studying Computer
             Science. I am passionate in uplifting other developers by teaching
             what I know, because for me, this is my way of saying thank you to
@@ -86,7 +86,7 @@ export default function Home() {
                   <path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-gradient-to-r from-[#000000] to-[#444444] h-[300px] border-none">
+              <DialogContent className="bg-gradient-to-r from-[#000000] to-[#444444] max-h-[300px] border-none">
                   <DigitalCard/>
               </DialogContent>
             </Dialog>
@@ -101,7 +101,7 @@ export default function Home() {
             My Certifications
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifcations.map((cert, index) => (
+            {certifications.map((cert, index) => (
               <Link key={index} href={cert.link} className="group">
                 <Card className="h-full transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-lg flex flex-col">
                   <CardHeader className="flex-grow">
