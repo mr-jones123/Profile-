@@ -13,7 +13,7 @@ export default function NavBar() {
   }
 
   return (
-    <header className="bg-black text-white">
+  <header className="bg-black text-white">
     <div className="container mx-auto px-4">
       <div className="flex items-center justify-between h-16">
         <Link href="/" className="flex-shrink-0">
@@ -32,7 +32,7 @@ export default function NavBar() {
           <Link href="/certificates" className="hover:text-gray-300">Certificates</Link>
           <Link href="/projects" className="hover:text-gray-300">Projects</Link>
           <Link href="/blogs" className="hover:text-gray-300">Blogs</Link>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-moon"><path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg>
         </nav>
         
         <button className="md:hidden ml-4" onClick={toggleMenu}>
