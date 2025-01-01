@@ -50,8 +50,8 @@ export default function Home() {
             <div className="flex flex-col justify-end">
               <h2 className="text-customGrey text-lg md:text-xl leading-[1.2] tracking-[-0.015em] text-center md:text-left">
                 <span className="italic">
-                  &quotWhen you&aposre going to change the world, don&apost ask for
-                  permission&quot.
+                &quot;When you&apos;re going to change the world, don&apos;t ask for
+                permission.&quot;
                 </span>{" "}
                 Hence, my projects.
               </h2>
