@@ -1,9 +1,8 @@
-# Greetings, I am xy.
+# I am xy.
 
-🇵🇭 I am a developer currently studying at [FEU Institute of Technology](https://www.feutech.edu.ph) in Manila, Philippines.
+🇵🇭 I am a software developer. I want to educate and make cool things for the people. 
 
-Let's connect: 
+Let's connect via [LinkedIn](https://www.linkedin.com/in/xynil-jhed-lacap-76ba9029a/).
 
-- [LinkedIn](https://www.linkedin.com/in/xynil-jhed-lacap-76ba9029a/)
 
 
