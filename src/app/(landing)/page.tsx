@@ -11,7 +11,7 @@ import { certifications } from "../static-data/cert";
 import { projects } from "../static-data/proj";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BackgroundBeams } from "@/components/ui/background-beams";
-
+import Testimonials from "@/components/ui/testimonials";
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -50,8 +50,8 @@ export default function Home() {
             <div className="flex flex-col justify-end">
               <h2 className="text-customGrey text-lg md:text-xl leading-[1.2] tracking-[-0.015em] text-center md:text-left">
                 <span className="italic">
-                &quot;When you&apos;re going to change the world, don&apos;t ask for
-                permission.&quot;
+                  &quot;When you&apos;re going to change the world, don&apos;t
+                  ask for permission.&quot;
                 </span>{" "}
                 Hence, my projects.
               </h2>
@@ -190,16 +190,36 @@ export default function Home() {
           >
             <Card className="w-72 h-64">
               <CardHeader className="p-4">
-                <CardTitle className="text-xl md:text-3xl tracking-tight">Coming Soon</CardTitle>
+                <CardTitle className="text-xl md:text-3xl tracking-tight">
+                  Coming Soon
+                </CardTitle>
               </CardHeader>
               <CardContent className="p-4">
-                <CardDescription className="line-clamp-3 text-sm">It will come soon enough...</CardDescription>
+                <CardDescription className="line-clamp-3 text-sm">
+                  It will come soon enough...
+                </CardDescription>
               </CardContent>
             </Card>
           </motion.div>
         </motion.section>
+
+        <motion.section
+          className="flex flex-col gap-6 items-center justify-center mt-40"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className="text-customWhite text-3xl md:text-5xl font-bold text-center">
+            Testimonials
+          </h1>
+          <h2 className="text-customGrey text-lg md:text-xl text-center">
+            Hear from the best.
+          </h2>
+          <Testimonials />
+        </motion.section>
+
+       
       </main>
     </div>
   );
 }
-

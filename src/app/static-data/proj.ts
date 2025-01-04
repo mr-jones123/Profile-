@@ -2,7 +2,7 @@
 
 export const projects = [
     {
-        title : "weCare.",
+        title : "aral.",
         description : "A web application for students to use external resources and tools to help their academic journey.",
         link: "https://we-care-chi.vercel.app"
     },
