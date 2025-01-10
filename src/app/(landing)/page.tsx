@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from 'next/link';
 import { PinContainer } from "@/components/ui/3d-pin";
 import {
   Card,
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0b0d0b]">
       <main className="container mx-auto py-8 md:py-16">
+        {/* Hero */}
         <motion.section
           className="flex flex-col items-center justify-center md:flex-row md:items-center md:justify-between align-baseline h-[100dvh] "
           style={{ opacity, scale }}
@@ -28,9 +30,9 @@ export default function Home() {
             I am xy.
           </h1>
           <div className="flex items-center flex-col md:items-start gap-5 ">
-          <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 via-neutral-300 to-neutral-500 text-3xl md:text-5xl font-light leading-[1.2] tracking-[-0.015em] z-10 py-1">
-              Software Engineer.  
-          </h2>
+            <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 via-neutral-300 to-neutral-500 text-3xl md:text-5xl font-light leading-[1.2] tracking-[-0.015em] z-10 py-1">
+              Software Engineer.
+            </h2>
             <p className="text-customGrey font-extralight text-sm md:text-md italic leading-normal z-10 text-center md:text-left">
               Evolving with technology. One iteration at a time.
             </p>
@@ -38,12 +40,8 @@ export default function Home() {
           <BackgroundBeams />
         </motion.section>
 
-        <motion.section
-          className="flex flex-col gap-6 items-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        {/* Projects */}
+        <motion.section className="flex flex-col gap-6 items-center">
           <div className="flex flex-col md:flex-row justify-center align-baseline gap-6 md:gap-28 max-w-[800px] px-4 md:px-0">
             <h1 className="text-customWhite text-3xl md:text-5xl font-bold tracking-tight leading-tight text-center md:text-left">
               My Glorious Projects.
@@ -64,9 +62,6 @@ export default function Home() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                },
               },
             }}
             initial="hidden"
@@ -104,60 +99,72 @@ export default function Home() {
           </motion.div>
         </motion.section>
 
+        {/* Certifications */}
         <motion.section
-      className="mt-40 px-4 md:px-0"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="text-center mb-12">
-        <h1 className="text-customWhite text-3xl md:text-5xl font-bold">Certifications</h1>
-        <h2 className="text-customGrey text-lg md:text-xl mt-2">Milestones in my journey</h2>
-      </div>
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.2,
-            },
-          },
-        }}
-        initial="hidden"
-        whileInView="show"
-      >
-        {certifications.map((cert, index) => (
+          className="mt-40 px-4 md:px-0"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="text-center mb-12">
+            <h1 className="text-customWhite text-3xl md:text-5xl font-bold">
+              Certifications
+            </h1>
+            <h2 className="text-customGrey text-lg md:text-xl mt-2">
+              Milestones in my journey
+            </h2>
+          </div>
           <motion.div
-            key={index}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0 },
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
             }}
+            initial="hidden"
+            whileInView="show"
           >
-           <Card className="h-full overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
-              <CardContent className="p-0 h-full">
-                <div className="relative h-48 w-full">
-                  <Image 
-                    src={cert.image}
-                    alt="Certification Image"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h1 className="text-white text-lg font-extra-bold">{cert.title}</h1>
-                    <p className="text-white text-center text-sm">{cert.description}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+              >
+                <Link href={cert.link}>
+                  <Card className="h-full overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
+                    <CardContent className="p-0 h-full">
+                      <div className="relative h-48 w-full">
+                        <Image
+                          src={cert.image}
+                          alt="Certification Image"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <h1 className="text-white text-lg font-extra-bold">
+                            {cert.title}
+                          </h1>
+                          <p className="text-white text-center text-sm">
+                            {cert.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
-      </motion.div>
-    </motion.section>
+        </motion.section>
 
+        {/* Blogs */}
         <motion.section
           className="flex flex-col gap-6 items-center justify-center mt-40"
           initial={{ opacity: 0, y: 50 }}
@@ -198,6 +205,7 @@ export default function Home() {
           </motion.div>
         </motion.section>
 
+        {/* Testimonials */}
         <motion.section
           className="flex flex-col gap-6 items-center justify-center mt-40"
           initial={{ opacity: 0, y: 50 }}
@@ -212,8 +220,6 @@ export default function Home() {
           </h2>
           <Testimonials />
         </motion.section>
-
-       
       </main>
     </div>
   );
