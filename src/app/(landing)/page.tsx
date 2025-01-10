@@ -19,7 +19,7 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   return (
-    <div className="min-h-screen flex flex-col bg-[#0b0d0b]">
+    <div className="min-h-screen flex flex-col bg-[#0b0d0b] overflow-x-hidden">
       <main className="container mx-auto py-8 md:py-16">
         {/* Hero */}
         <motion.section
