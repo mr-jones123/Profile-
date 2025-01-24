@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
-
+import localFont from "next/font/local";
 
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
+  variable : "--font-inter"
 })
 
+const gambetta = localFont({
+  src : "./fonts/Gambetta-Variable.ttf",
+  variable : "--font-gambetta"
+})
 export const metadata: Metadata = {
   title: "xy.",
   description: "myPortfolio",
@@ -34,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
   
       <body
-        className={`${inter.className} } antialiased`}
+        className={`${gambetta.className} ${inter.className} } antialiased`}
       >
         {children}
       </body>

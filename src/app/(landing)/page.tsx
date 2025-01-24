@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { PinContainer } from "@/components/ui/3d-pin";
+
 import {
   Card,
   CardHeader,
@@ -11,34 +12,42 @@ import {
 } from "@/components/ui/card";
 import { certifications } from "../static-data/cert";
 import { projects } from "../static-data/proj";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { motion} from "framer-motion";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Testimonials from "@/components/ui/testimonials";
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   return (
-    <div className="min-h-screen flex flex-col bg-[#0b0d0b] overflow-x-hidden">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <main className="container mx-auto py-8 md:py-16">
-        {/* Hero */}
-        <motion.section
-          className="flex flex-col items-center justify-center md:flex-row md:items-center md:justify-between align-baseline h-[100dvh] "
-          style={{ opacity, scale }}
+      <h1 className="text-customWhite px-3 text-center text-5xl md:text-8xl font-bold">my name is xy</h1>
+      <CardContainer className="mb-20">
+      <CardBody className="relative group/card  hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] bg-black border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+        <CardItem
+          translateZ="50"
+          className="text-xl font-bold  text-white"
         >
-          <h1 className="text-customWhite text-5xl md:text-9xl font-black tracking-tight leading-tight z-10">
-            I am xy.
-          </h1>
-          <div className="flex items-center flex-col md:items-start gap-5 ">
-            <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 via-neutral-300 to-neutral-500 text-3xl md:text-5xl font-light leading-[1.2] tracking-[-0.015em] z-10 py-1">
-              Software Engineer.
-            </h2>
-            <p className="text-customGrey font-extralight text-sm md:text-md italic leading-normal z-10 text-center md:text-left">
-              Evolving with technology. One iteration at a time.
-            </p>
-          </div>
-          <BackgroundBeams />
-        </motion.section>
+          Software Engineer && Full-Stack Developer
+        </CardItem>
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="font-sans text-sm max-w-sm mt-2 text-customGrey"
+        >
+          ...to have lived without leaving a trace of one&apos;s existence, is to not have lived at all
+          {" "}<span className="italic font-semibold">- Napoleon Bonaparte </span>
+        </CardItem>
+        <CardItem translateZ="100" className="w-full mt-4">
+          <Image
+            src="/my-notion-face-portrait.png"
+            height="1000"
+            width="1000"
+            className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            alt="thumbnail"
+          />
+        </CardItem>
+      </CardBody>
+    </CardContainer>
+
 
         {/* Projects */}
         <motion.section className="flex flex-col gap-6 items-center">
@@ -52,7 +61,6 @@ export default function Home() {
                   &quot;When you&apos;re going to change the world, don&apos;t
                   ask for permission.&quot;
                 </span>{" "}
-                Hence, my projects.
               </h2>
             </div>
           </div>
@@ -88,7 +96,7 @@ export default function Home() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="p-4">
-                      <CardDescription className="line-clamp-3 text-sm">
+                      <CardDescription className="line-clamp-3 font-sans text-sm">
                         {project.description}
                       </CardDescription>
                     </CardContent>
@@ -151,7 +159,7 @@ export default function Home() {
                           <h1 className="text-white text-lg font-extra-bold">
                             {cert.title}
                           </h1>
-                          <p className="text-white text-center text-sm">
+                          <p className="text-white font-sans font-semibold text-center text-sm">
                             {cert.description}
                           </p>
                         </div>

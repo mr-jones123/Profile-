@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
     darkMode: ["class"],
@@ -81,7 +82,8 @@ const config: Config = {
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
 		  fontFamily:{
-			sans : ["Inter", "sans-serif"]
+			inter : ['var(--font-inter)'],
+			gambetta : ['var(--font-gambetta)']
 		},
 		fontWeight: {
 			thin: '100',
@@ -96,8 +98,8 @@ const config: Config = {
 			'extra-bold': '800',
 			black: '900',
 		  }
-  	}
+	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 };
 export default config;
