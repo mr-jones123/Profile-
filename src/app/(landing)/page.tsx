@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { PinContainer } from "@/components/ui/3d-pin";
-
+import SanityBlogs from "@/components/sanityBlogs";
 import {
   Card,
   CardHeader,
@@ -184,33 +184,8 @@ export default function Home() {
               Blogs
             </h1>
           </div>
-          <motion.div
-            className="mt-12"
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView="show"
-          >
-            <Card className="w-72 h-64">
-              <CardHeader className="p-4">
-                <CardTitle className="text-xl md:text-3xl tracking-tight">
-                  Coming Soon
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4">
-                <CardDescription className="line-clamp-3 text-sm">
-                  It will come soon enough...
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </motion.div>
+          
+          <SanityBlogs/>
         </motion.section>
 
         {/* Testimonials */}

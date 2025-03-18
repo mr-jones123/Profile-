@@ -21,4 +21,9 @@ export const projects = [
         description : "An application that tracks consistency to achieve long term goals.",
         link: "https://remnder.vercel.app"
     },
+    {
+        title : "Explainable AI for Enhancement of User trust",
+        description : "An application that tracks consistency to achieve long term goals.",
+        link: "https://github.com/mr-jones123/XAI-Research.git"
+    }
 ]

@@ -43,7 +43,7 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
+    <div className="max-w-sm md:max-w-4xl mx-auto antialiased  px-4 md:px-8 lg:px-12 py-20 font-gambetta">
       <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
         <div>
           <div className="relative h-80 w-full">
@@ -112,13 +112,13 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-xl md:text-3xl font-bold text-customWhite">
+            <h3 className="text-xl md:text-3xl font-bold font-gambetta text-customWhite">
               {testimonials[active].name}
             </h3>
             <p className="text-sm text-customGrey">
               {testimonials[active].occupation}
             </p>
-            <motion.p className="text-lg text-gray-400 mt-8 mb-8 ">
+            <motion.p className="text-lg text-gray-400 font-inter mt-8 mb-8 ">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -137,7 +137,7 @@ export const AnimatedTestimonials = ({
                     ease: "easeInOut",
                     delay: 0.02 * index,
                   }}
-                  className="inline-block"
+                  className="inline-block font-inter"
                 >
                   {word}&nbsp;
                 </motion.span>
