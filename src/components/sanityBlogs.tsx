@@ -3,7 +3,7 @@ import { client } from "@/sanity/client"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-
+import {useState, useEffect} from "react"
 
 // Updated query to include body images
 const POST_QUERY = `*[_type == "post"]{
@@ -20,15 +20,30 @@ const POST_QUERY = `*[_type == "post"]{
 
 const options = { next: { revalidate: 30 } }
 
-export default async function SanityBlogs() {
-  const posts = await client.fetch<SanityDocument[]>(POST_QUERY, {}, options)
+export default function SanityBlogs(){
+  const [queryResults, setQueryResults] = useState<SanityDocument[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+      const fetchPost = async () =>{
+          setLoading(true);
+          try{
+            const queryResponse = await client.fetch<SanityDocument[]>(POST_QUERY, {}, options)
+            setQueryResults(queryResponse);
+          } catch (err){
+            console.log(err)
+          } finally {
+            setLoading(false);
+          }
+      }
+      fetchPost();
+  },[]);
 
   return (
     <div className="max-w-7xl mx-auto py-12">
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">Blogs</h1>
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6">
-        {posts.map((post) => (
+        {loading? <h1 className="text-2xl text-white">Loading Contents</h1> : queryResults?.map((post) => (
           <Link
             key={post._id}
             href={`/${post.slug.current}`}
@@ -65,6 +80,5 @@ export default async function SanityBlogs() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-
